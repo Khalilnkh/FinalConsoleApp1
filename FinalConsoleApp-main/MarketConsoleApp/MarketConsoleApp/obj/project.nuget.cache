@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ofrCzvoP/6Ad/zmOp16cSoGcQsez+ePSQy9ViyjY6n9E90nfyCs6wqn0IunRkx3XIOEIQqbtnqBzYgIT2/Cq1Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\xeyru\\OneDrive\\İş masası\\MarketConsoleApp\\FinalConsoleApp-main\\MarketConsoleApp\\MarketConsoleApp\\MarketConsoleApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\xeyru\\.nuget\\packages\\consoletables\\2.5.0\\consoletables.2.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
