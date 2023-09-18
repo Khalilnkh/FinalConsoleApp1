@@ -18,17 +18,12 @@ namespace MarketConsoleApp.Services.Abstract
         public List<Product> GetProductsByPriceRange(int minPrice, int maxPrice);
         public List<Product> GetProductsByGivenName(string name);
 
-
+        //istifadeciden satis yaradilmasi ucun lazimi meulatlarin daxil edilmesi istenilir(mehsullarin ID-lari)
 
         //7 Mehsullar arasinda ada gore axtaris et - useden text daxil etmesi istenilir ve adinda hemin text olan butun mehsullar gosterilir(ID, adi, categoriyasi, sayi, qiymeti)
 
 
-
-        //public List<Product> GetProducts(int id, string name, decimal price, Department department, int quantity);
-        //public List<Product> GetProductsByCategory(int id, string name, decimal price, Department department, int quantity);
-        //public List<Product> GetProductsByPriceRange(int id, string name, decimal price, Department department, int quantity);
-
-        //public int AddSales(decimal amount, DateTime date, int saleItem, int productId);
+        //public List<Sale> AddSales(decimal amount, DateTime date, int saleItem, int productId);
         //public List<Product> GetSales(int id, decimal amount,DateOnly date,SaleItem saleItem);
         //public int ReturnProductOnSale(SaleItem saleItem,Product product,int quantity);
         //public int DeleteSale(int id);

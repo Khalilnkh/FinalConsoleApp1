@@ -109,20 +109,50 @@ namespace MarketConsoleApp.Services.Concrete
 
         public static void ShowProducts()
         {
-            var table = new ConsoleTable("ID", "Name", "Price", "Department", "Quantity");
-
-            foreach (var product in marketService.GetProducts())
+            try
             {
-                table.AddRow(product.Id, product.Name, product.Price, product.Department, product.Quantity);
-            }
+                var table = new ConsoleTable("ID", "Name", "Price", "Department", "Quantity");
 
-            table.Write();
+                foreach (var product in marketService.GetProducts())
+                {
+                    table.AddRow(product.Id, product.Name, product.Price, product.Department, product.Quantity);
+                }
+
+                table.Write();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error {ex.Message}");
+            }
+        }
+
+        public static void ShowCategories()
+        {
+            try
+            {
+                var table = new ConsoleTable("Id","Department");
+
+                foreach (var product in marketService.GetProducts())
+                {
+                    table.AddRow(product.Id,product.Department);
+                }
+
+                table.Write();
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"Error {ex.Message}");
+
+            }
         }
 
         public static void GetProductsByCategory()
         {
             try
             {
+                Console.WriteLine("List of available products:");
+                ShowCategories();
                 Console.WriteLine("Please enter category of  product");
                 Department department = (Department)Enum.Parse(typeof(Department), Console.ReadLine()!);
 
@@ -224,7 +254,15 @@ namespace MarketConsoleApp.Services.Concrete
         //        Console.WriteLine("Enter amount of sale:");
         //        int amount = int.Parse(Console.ReadLine()!);
 
-        //        var id = marketService.AddSales(amount,date,saleItemId,productId);
+        //        var table = new ConsoleTable("ID", "Amount", "Date", "SalesItem", "Product");
+
+        //        foreach (var sales in marketService.AddSales(amount,date,saleItemId,productId));
+        //        {
+        //            //table.AddRow(, product.Name, product.Price, product.Department, product.Quantity);
+        //        }
+        //        table.Write();
+               
+        //        var id = marketService.AddSales(amount, date, saleItemId, productId);
 
         //        Console.WriteLine($"Sale with ID:{id} was created!");
         //    }

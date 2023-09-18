@@ -23,6 +23,5 @@ namespace MarketConsoleApp.Data.Models
 
 
 
-
     }
 }
