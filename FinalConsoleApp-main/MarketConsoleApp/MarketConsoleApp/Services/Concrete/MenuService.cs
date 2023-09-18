@@ -145,6 +145,34 @@ namespace MarketConsoleApp.Services.Concrete
 
         }
 
+        public static void GetProductsByPriceRange()
+        {
+            try
+            {
+                Console.WriteLine("Please minimum price of product");
+                int minPrice = int.Parse(Console.ReadLine()!);
+
+                Console.WriteLine("Please maximum price of product");
+                int maxPrice = int.Parse(Console.ReadLine()!);
+
+                var table = new ConsoleTable("ID", "Name", "Price", "Department", "Quantity");
+
+                foreach (var product in marketService.GetProductsByPriceRange(minPrice, maxPrice))
+                {
+                    table.AddRow(product.Id, product.Name, product.Price, product.Department, product.Quantity);
+                }
+                table.Write();
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"Error {ex.Message}");
+            }
+
+
+        }
+
         //public static void AddSales()
         //{
 

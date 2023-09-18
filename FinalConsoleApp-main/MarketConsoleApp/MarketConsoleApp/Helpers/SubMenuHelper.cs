@@ -43,6 +43,15 @@ namespace MarketConsoleApp.Helpers
                     case 3:
                         MenuService.DeleteProduct();
                         break;
+                    case 4:
+                        MenuService.ShowProducts();
+                        break;
+                    case 5:
+                        MenuService.GetProductsByCategory();
+                        break;
+                    case 6:
+                        MenuService.GetProductsByPriceRange();
+                        break;
                     case 0:
                         break;
                     default:

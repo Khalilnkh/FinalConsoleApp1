@@ -15,6 +15,10 @@ namespace MarketConsoleApp.Services.Abstract
         public int DeleteProduct(int id);
         public List<Product> GetProducts();
         public List<Product> GetProductsByCategory(Department department);
+        public List<Product> GetProductsByPriceRange(int minPrice, int maxPrice);
+
+
+        //- 6 Qiymet araligina gore mehsullari goster - userden minmum ve maximum qiymetleri daxil etmesi istenilir ve hemin qiymet araliginda olan mehsullar gosterilir(ID, adi, categoriyasi, sayi, qiymeti)
 
 
 

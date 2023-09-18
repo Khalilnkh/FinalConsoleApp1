@@ -92,6 +92,19 @@ namespace MarketConsoleApp.Services.Concrete
             return product;
         }
 
+        public List<Product> GetProductsByPriceRange(int minPrice, int maxPrice)
+        {
+            if (minPrice < 0)
+                throw new Exception("Minimum price cant be less than 0");
+            if (maxPrice < 0)
+                throw new Exception("Maximum price cant be less than 0");
+            if (minPrice > maxPrice)
+                throw new Exception("Min price can't be larger than max price!");
+
+            var product=_products.Where(x => x.Price >= minPrice && x.Price <= maxPrice).ToList();
+            return product;
+        }
+
         //public int AddSales(decimal amount, DateTime date, int saleItemId, int productId)
         //{
 
