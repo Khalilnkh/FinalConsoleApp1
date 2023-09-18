@@ -2,6 +2,7 @@
 using MarketConsoleApp.Data.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,15 +19,19 @@ namespace MarketConsoleApp.Services.Abstract
         public List<Product> GetProductsByPriceRange(int minPrice, int maxPrice);
         public List<Product> GetProductsByGivenName(string name);
 
-        //istifadeciden satis yaradilmasi ucun lazimi meulatlarin daxil edilmesi istenilir(mehsullarin ID-lari)
 
-        //7 Mehsullar arasinda ada gore axtaris et - useden text daxil etmesi istenilir ve adinda hemin text olan butun mehsullar gosterilir(ID, adi, categoriyasi, sayi, qiymeti)
+        public int DeleteSale(int id);
+        public List<Sale> GetSales();
+
+
+
+
+        //Satisin silinmesi - satisin ID-sine esasen silinmesi
 
 
         //public List<Sale> AddSales(decimal amount, DateTime date, int saleItem, int productId);
         //public List<Product> GetSales(int id, decimal amount,DateOnly date,SaleItem saleItem);
         //public int ReturnProductOnSale(SaleItem saleItem,Product product,int quantity);
-        //public int DeleteSale(int id);
         //public List<Product> GetSales(int id, decimal amount, DateOnly date,int quantity);
         //public List<Product> GetSalesByDateRange(int id, decimal amount, int quantity, DateOnly date);
         //public List<Product> GetSalesByPriceRange(int id, decimal amount, DateOnly date, int quantity);

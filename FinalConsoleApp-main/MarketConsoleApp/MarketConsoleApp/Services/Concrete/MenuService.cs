@@ -130,11 +130,11 @@ namespace MarketConsoleApp.Services.Concrete
         {
             try
             {
-                var table = new ConsoleTable("Id","Department");
+                var table = new ConsoleTable("Id", "Department");
 
                 foreach (var product in marketService.GetProducts())
                 {
-                    table.AddRow(product.Id,product.Department);
+                    table.AddRow(product.Id, product.Department);
                 }
 
                 table.Write();
@@ -237,6 +237,47 @@ namespace MarketConsoleApp.Services.Concrete
 
         }
 
+        public static void DeleteSale()
+        {
+
+
+            try
+            {
+                Console.WriteLine("Please enter Id of sale");
+                int id = int.Parse(Console.ReadLine()!);
+
+                marketService.DeleteSale(id);
+                Console.WriteLine($"Product with ID:{id} was deleted!");
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"Eror {ex.Message}");
+            }
+
+
+        }
+
+        public static void ShowSales()
+        {
+            try
+            {
+                var table = new ConsoleTable("ID", "Ammount", "Date", "SalesItem", "Product");
+
+                foreach (var sale in marketService.GetSales())
+                {
+                    table.AddRow(sale.Id,sale.Amount,sale.Date,sale.SaleItem,sale.Product.Name,sale.Product.Department,sale.Product.Quantity,sale.Product.Quantity);
+                }
+
+                table.Write();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error {ex.Message}");
+            }
+        }
+
         //public static void AddSales()
         //{
 
@@ -261,7 +302,7 @@ namespace MarketConsoleApp.Services.Concrete
         //            //table.AddRow(, product.Name, product.Price, product.Department, product.Quantity);
         //        }
         //        table.Write();
-               
+
         //        var id = marketService.AddSales(amount, date, saleItemId, productId);
 
         //        Console.WriteLine($"Sale with ID:{id} was created!");

@@ -114,6 +114,23 @@ namespace MarketConsoleApp.Services.Concrete
             return product;
         }
 
+        public int DeleteSale(int id)
+        {
+            if (id < 0)
+                throw new Exception("Id cant be less than 0");
+            var sale = _sales.FirstOrDefault(x => x.Id == id);
+            if (sale == null)
+                throw new Exception($"Product with Id {id} can not found");
+            _sales.Remove(sale);
+            return sale.Id;
+
+        }
+
+        public List<Sale> GetSales()
+        {
+            return _sales;
+        }
+
 
 
         //public int AddSales(decimal amount, DateTime date, int saleItemId, int productId)
@@ -135,9 +152,9 @@ namespace MarketConsoleApp.Services.Concrete
         //        Amount = amount,
         //        Date = date,
         //        Product =products.First(),
-                
 
-                
+
+
         //    };
 
         //    _sales.Add(sale);
