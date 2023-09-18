@@ -73,6 +73,7 @@ namespace MarketConsoleApp.Services.Concrete
                 product.Price = price;
                 product.Department = department;
                 product.Quantity = quantity;
+            
 
 
                 return product.Id;
@@ -102,6 +103,14 @@ namespace MarketConsoleApp.Services.Concrete
                 throw new Exception("Min price can't be larger than max price!");
 
             var product=_products.Where(x => x.Price >= minPrice && x.Price <= maxPrice).ToList();
+            return product;
+        }
+
+        public List<Product> GetProductsByGivenName(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new Exception("Name can't be empty!");
+            var product=_products.Where(x=>x.Name == name).ToList();
             return product;
         }
 

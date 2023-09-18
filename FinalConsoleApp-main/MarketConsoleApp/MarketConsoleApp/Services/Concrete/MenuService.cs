@@ -149,15 +149,49 @@ namespace MarketConsoleApp.Services.Concrete
         {
             try
             {
-                Console.WriteLine("Please minimum price of product");
+                Console.WriteLine("Please Add minimum price of product");
                 int minPrice = int.Parse(Console.ReadLine()!);
 
-                Console.WriteLine("Please maximum price of product");
+                Console.WriteLine("Please Add maximum price of product");
                 int maxPrice = int.Parse(Console.ReadLine()!);
 
                 var table = new ConsoleTable("ID", "Name", "Price", "Department", "Quantity");
 
                 foreach (var product in marketService.GetProductsByPriceRange(minPrice, maxPrice))
+                {
+                    table.AddRow(product.Id, product.Name, product.Price, product.Department, product.Quantity);
+                }
+                table.Write();
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"Error {ex.Message}");
+            }
+
+
+        }
+
+        public static void GetProductsByName()
+        {
+            try
+            {
+                Console.WriteLine("Please Add product name ");
+                string name = Console.ReadLine()!;
+                ValidateMyString(name);
+                static void ValidateMyString(string s)
+                {
+                    if (s.All(char.IsDigit))
+                    {
+                        Console.WriteLine("The product can not be consist of only numbers or digits");
+                        throw new FormatException();
+
+                    }
+                }
+                var table = new ConsoleTable("ID", "Name", "Price", "Department", "Quantity");
+
+                foreach (var product in marketService.GetProductsByGivenName(name))
                 {
                     table.AddRow(product.Id, product.Name, product.Price, product.Department, product.Quantity);
                 }

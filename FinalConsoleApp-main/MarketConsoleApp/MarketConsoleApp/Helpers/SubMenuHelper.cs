@@ -52,6 +52,9 @@ namespace MarketConsoleApp.Helpers
                     case 6:
                         MenuService.GetProductsByPriceRange();
                         break;
+                    case 7:
+                        MenuService.GetProductsByName();
+                        break;
                     case 0:
                         break;
                     default:
